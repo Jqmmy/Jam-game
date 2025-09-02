@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dvuics1pjx4jw"]
+
+[ext_resource type="Script" uid="uid://cnhy1qo266bra" path="res://Scripts/shotgun.gd" id="1_oxw24"]
+[ext_resource type="Script" uid="uid://c1uqexfyeqgq7" path="res://Scripts/WeaponData.gd" id="2_wnt4m"]
+
+[sub_resource type="Resource" id="Resource_wnt4m"]
+script = ExtResource("2_wnt4m")
+name = "Shotgun"
+damage = 50
+metadata/_custom_type_script = "uid://c1uqexfyeqgq7"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oxw24"]
+size = Vector2(300, 50)
+
+[node name="Shotgun" type="Node2D" groups=["enemy"]]
+script = ExtResource("1_oxw24")
+weapon_data = SubResource("Resource_wnt4m")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(150, 0)
+shape = SubResource("RectangleShape2D_oxw24")
