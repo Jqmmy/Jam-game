@@ -20,4 +20,4 @@ func _input(event: InputEvent) -> void:
 		
 		for enemy in area_2d.get_overlapping_bodies():
 			if enemy.is_in_group("enemy"):
-				enemy.health -= weapon_data.damage / enemies_shot
+				enemy.health -= damage / enemies_shot

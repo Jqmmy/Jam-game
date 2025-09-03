@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jc1p0uslb4co"]
 
 [ext_resource type="Script" uid="uid://dejecgscw78vv" path="res://Scripts/player.gd" id="1_h8clt"]
-[ext_resource type="PackedScene" uid="uid://dvuics1pjx4jw" path="res://Prefabs/weapons/shotgun.tscn" id="2_sgdqr"]
+[ext_resource type="PackedScene" uid="uid://dvuics1pjx4jw" path="res://Prefabs/weapons/template/temp weapon.tscn" id="2_sgdqr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sgdqr"]
 size = Vector2(75, 100)
