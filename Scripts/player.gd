@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 @onready var camera: Camera2D = %camera
+@onready var hands: Node2D = %hands
 
 var health:int = 100
 
@@ -8,7 +9,16 @@ var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 var camera_move_offset:float = 75
 var camera_move_offset_up:float = 90
+var resting_hands_pos:Vector2
 
+var current_weapon:Weapon
+var weapon_holster:Dictionary = {
+	
+}
+
+func _ready() -> void:
+	resting_hands_pos = hands.position
+	current_weapon = hands.get_child(0)
 
 func _physics_process(delta: float) -> void:
 	var tween = get_tree().create_tween()
@@ -31,8 +41,10 @@ func _physics_process(delta: float) -> void:
 		
 		if direction > 0:
 			tween.tween_property(camera,"position:x", camera_move_offset, 0.5)
+			current_weapon.flip_weapon(current_weapon.directions.RIGHT)
 		else:
 			tween.tween_property(camera,"position:x", -camera_move_offset, 0.5)
+			current_weapon.flip_weapon(current_weapon.directions.LEFT)
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		

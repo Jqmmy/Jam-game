@@ -25,7 +25,9 @@ position = Vector2(0, -52.375)
 scale = Vector2(4.63634, 105.25)
 mesh = SubResource("QuadMesh_v8br1")
 
-[node name="weapon holder" type="Node2D" parent="."]
-position = Vector2(39, -53)
+[node name="hands" type="Node2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(40, -55)
 
-[node name="Shotgun" parent="weapon holder" instance=ExtResource("2_sgdqr")]
+[node name="Shotgun" parent="hands" instance=ExtResource("2_sgdqr")]
+position = Vector2(-18, 2)

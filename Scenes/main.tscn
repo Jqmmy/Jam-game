@@ -22,13 +22,16 @@ metadata/_edit_group_ = true
 shape = SubResource("RectangleShape2D_bo1nx")
 
 [node name="Player" parent="." instance=ExtResource("1_jjgbg")]
-position = Vector2(469, 198)
+position = Vector2(463, 202)
 
 [node name="test enemy" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(764, 187)
 
 [node name="test enemy2" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(664, 151)
+
+[node name="test enemy4" parent="." instance=ExtResource("3_8gbba")]
+position = Vector2(250, 166)
 
 [node name="test enemy3" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(852, 182)

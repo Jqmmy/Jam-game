@@ -2,6 +2,7 @@ extends Resource
 class_name WeaponData
 
 @export var name:String
+@export_multiline var description:String
 @export var damage:int = 10
 
 

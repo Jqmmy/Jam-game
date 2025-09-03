@@ -6,18 +6,20 @@
 [sub_resource type="Resource" id="Resource_wnt4m"]
 script = ExtResource("2_wnt4m")
 name = "Shotgun"
+description = "Close range weapon that deals heavy damage. Deals less damage the more enemies you have in range."
 damage = 50
 metadata/_custom_type_script = "uid://c1uqexfyeqgq7"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxw24"]
-size = Vector2(300, 50)
+size = Vector2(300, 90)
 
 [node name="Shotgun" type="Node2D" groups=["enemy"]]
 script = ExtResource("1_oxw24")
 weapon_data = SubResource("Resource_wnt4m")
+weapon_flip_offset = 380.0
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(150, 0)
+position = Vector2(150, -5)
 shape = SubResource("RectangleShape2D_oxw24")
