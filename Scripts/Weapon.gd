@@ -4,11 +4,12 @@ class_name Weapon
 @export var weapon_name:String
 @export_multiline var description:String
 @export var damage:int = 10
-@export var weapon_flip_offset:float
+@export var player_width:float
 @export var sprite2d:Sprite2D
 
 
-var hand_resting_pos:Vector2
+var hands_resting_pos:Vector2
+var hands
 enum directions {
 	LEFT,
 	RIGHT
@@ -19,7 +20,8 @@ signal holding_use
 
 # Called when the node enters the scene tree for the first time.
 func _enter_tree() -> void:
-	hand_resting_pos = get_parent().position
+	hands_resting_pos = get_parent().position
+	hands = get_parent()
 
 func _input(_event: InputEvent) -> void:
 	if !Engine.is_editor_hint():
@@ -30,7 +32,9 @@ func _input(_event: InputEvent) -> void:
 
 func flip_weapon(direction:directions):
 	if direction == directions.LEFT:
-		position.x = -weapon_flip_offset
+		hands.position.x = -hands_resting_pos.x
+		sprite2d.flip_h = true
+		sprite2d.position.x = 0
 	elif direction == directions.RIGHT:
-		position.x = 0
-			
+		hands.position.x = hands_resting_pos.x
+		sprite2d.flip_h = false

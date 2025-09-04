@@ -10,9 +10,14 @@ config_version=5
 
 [application]
 
-config/name="New Game Project"
+config/name="Project Shelter"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 
 [global_group]
 

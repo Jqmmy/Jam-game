@@ -2,15 +2,16 @@ extends CharacterBody2D
 
 @onready var camera: Camera2D = %camera
 @onready var hands: Node2D = %hands
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
 var health:int = 100
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
 var camera_move_offset:float = 75
-var camera_move_offset_up:float = 90
+var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
-
+var look_direction:int = 1
 var current_weapon:Weapon
 var weapon_holster:Dictionary = {
 	
@@ -21,13 +22,18 @@ func _ready() -> void:
 	current_weapon = hands.get_child(0)
 
 func _physics_process(delta: float) -> void:
+	if look_direction > 0:
+		hands.look_at(get_global_mouse_position())
+	else:
+		hands.look_at(get_global_mouse_position())
+	
 	var tween = get_tree().create_tween()
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
 		tween.tween_property(camera,"position:y", -camera_move_offset_up, 0.5)
 	else:
-		tween.tween_property(camera,"position:y", -50, 0.2)
+		tween.tween_property(camera,"position:y", -160, 0.2)
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
@@ -42,9 +48,13 @@ func _physics_process(delta: float) -> void:
 		if direction > 0:
 			tween.tween_property(camera,"position:x", camera_move_offset, 0.5)
 			current_weapon.flip_weapon(current_weapon.directions.RIGHT)
+			sprite_2d.flip_h = false
+			look_direction = 1
 		else:
 			tween.tween_property(camera,"position:x", -camera_move_offset, 0.5)
 			current_weapon.flip_weapon(current_weapon.directions.LEFT)
+			sprite_2d.flip_h = true
+			look_direction = -1
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		

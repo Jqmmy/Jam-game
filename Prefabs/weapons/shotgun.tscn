@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://dn1m0noksaind"]
+
+[ext_resource type="PackedScene" uid="uid://dvuics1pjx4jw" path="res://Prefabs/weapons/template/temp weapon.tscn" id="1_xwnwy"]
+[ext_resource type="Script" uid="uid://cnhy1qo266bra" path="res://Scripts/shotgun.gd" id="2_sj4bd"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="3_jntsu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fboy1"]
+size = Vector2(300, 35.355)
+
+[node name="shotgun" instance=ExtResource("1_xwnwy")]
+script = ExtResource("2_sj4bd")
+weapon_name = "Shotgun"
+description = "Close range weapon that deals huge damage. Deals less damage the more enemies that are in range."
+damage = 50
+player_width = 60.0
+
+[node name="Area2D" type="Area2D" parent="." index="0"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(180, 0)
+shape = SubResource("RectangleShape2D_fboy1")
+
+[node name="Sprite2D" parent="." index="1"]
+scale = Vector2(0.482848, 0.25)
+texture = ExtResource("3_jntsu")
+offset = Vector2(64.59, 0)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+scale = Vector2(0.078125, 0.09375)
+texture = ExtResource("3_jntsu")
