@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="3_jntsu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fboy1"]
-size = Vector2(300, 35.355)
+size = Vector2(350, 100)
 
 [node name="shotgun" instance=ExtResource("1_xwnwy")]
 script = ExtResource("2_sj4bd")
@@ -17,7 +17,7 @@ player_width = 60.0
 [node name="Area2D" type="Area2D" parent="." index="0"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-position = Vector2(180, 0)
+position = Vector2(205, 0)
 shape = SubResource("RectangleShape2D_fboy1")
 
 [node name="Sprite2D" parent="." index="1"]

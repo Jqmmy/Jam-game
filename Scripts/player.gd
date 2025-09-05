@@ -11,7 +11,6 @@ var JUMP_VELOCITY = -400.0
 var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
-var looking_right:bool = true
 var current_weapon:Weapon
 var weapon_holster:Dictionary = {
 	
@@ -22,13 +21,20 @@ func _ready() -> void:
 	current_weapon = hands.get_child(0)
 
 func _physics_process(delta: float) -> void:
-	hands.look_at(get_global_mouse_position())
-	if not looking_right:
-		hands.rotation_degrees += 180
-		print(hands.rotation_degrees)
-		#hands.rotation = clamp(hands.rotation, deg_to_rad(-180), deg_to_rad(180))
+	if get_global_mouse_position().x > global_position.x:
+		hands.look_at(get_global_mouse_position())
+		current_weapon.flip_weapon(current_weapon.directions.RIGHT)
+		sprite_2d.flip_h = false
 	else:
-		hands.rotation = clamp(hands.rotation, deg_to_rad(-90), deg_to_rad(90))
+		hands.look_at(hands.to_global(hands.get_local_mouse_position() * -1))
+		current_weapon.flip_weapon(current_weapon.directions.LEFT)
+		sprite_2d.flip_h = true
+
+	
+	#if not looking_right:
+		#hands.look_at(hands.to_global(hands.get_local_mouse_position() * -1))
+	#else:
+		#hands.look_at(get_global_mouse_position())
 	
 	
 	var tween = get_tree().create_tween()
@@ -51,14 +57,10 @@ func _physics_process(delta: float) -> void:
 		
 		if direction > 0:
 			tween.tween_property(camera,"position:x", camera_move_offset, 0.5)
-			current_weapon.flip_weapon(current_weapon.directions.RIGHT)
-			sprite_2d.flip_h = false
-			looking_right = true
+			
 		else:
 			tween.tween_property(camera,"position:x", -camera_move_offset, 0.5)
-			current_weapon.flip_weapon(current_weapon.directions.LEFT)
-			sprite_2d.flip_h = true
-			looking_right = false
+			
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		

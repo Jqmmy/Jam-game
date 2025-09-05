@@ -4,8 +4,11 @@ class_name Weapon
 @export var weapon_name:String
 @export_multiline var description:String
 @export var damage:int = 10
+@export var reload_speed:float
+@export var rate_of_fire:float
 @export var player_width:float
 @export var sprite2d:Sprite2D
+
 
 
 var hands_resting_pos:Vector2
