@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq04l54mglygc"]
+
+[ext_resource type="PackedScene" uid="uid://c74dpyblomavy" path="res://Prefabs/items/item template/item_template.tscn" id="1_auwli"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="2_2i1d1"]
+[ext_resource type="Script" uid="uid://ch4n13jqcrdp5" path="res://Scripts/shotgun_item.gd" id="2_nd1la"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nd1la"]
+size = Vector2(64, 72)
+
+[node name="Shotgun item" groups=["weapon"] instance=ExtResource("1_auwli")]
+script = ExtResource("2_nd1la")
+auto_pickup_threshhold = 200.0
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_2i1d1")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_nd1la")
+
+[connection signal="picked_up" from="." to="." method="_on_picked_up"]

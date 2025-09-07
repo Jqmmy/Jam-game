@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var camera: Camera2D = %camera
 @onready var hands: Node2D = %hands
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var ray_cast_2d: RayCast2D = $RayCast2D
 
 var health:int = 100
 
@@ -12,29 +13,38 @@ var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
 var current_weapon:Weapon
-var weapon_holster:Dictionary = {
-	
-}
+
 
 func _ready() -> void:
 	resting_hands_pos = hands.position
-	current_weapon = hands.get_child(0)
+
+func _process(delta: float) -> void:
+	ray_cast_2d.look_at(get_global_mouse_position())
+
+func add_weapon(weapon:Node2D):
+	hands.add_child(weapon)
+
 
 func _physics_process(delta: float) -> void:
+	if ray_cast_2d.is_colliding() and ray_cast_2d.get_collider():
+		if ray_cast_2d.get_collider().is_in_group("item"):
+			var item = ray_cast_2d.get_collider() as Item
+			#add hover code here
+			
+			if Input.is_action_just_pressed("interact"):
+				item.pick_up()
+	
 	if get_global_mouse_position().x > global_position.x:
 		hands.look_at(get_global_mouse_position())
-		current_weapon.flip_weapon(current_weapon.directions.RIGHT)
+		if current_weapon:
+			current_weapon.flip_weapon(current_weapon.directions.RIGHT)
 		sprite_2d.flip_h = false
 	else:
 		hands.look_at(hands.to_global(hands.get_local_mouse_position() * -1))
-		current_weapon.flip_weapon(current_weapon.directions.LEFT)
+		if current_weapon:
+			current_weapon.flip_weapon(current_weapon.directions.LEFT)
 		sprite_2d.flip_h = true
-
 	
-	#if not looking_right:
-		#hands.look_at(hands.to_global(hands.get_local_mouse_position() * -1))
-	#else:
-		#hands.look_at(get_global_mouse_position())
 	
 	
 	var tween = get_tree().create_tween()
@@ -67,3 +77,8 @@ func _physics_process(delta: float) -> void:
 		tween.tween_property(camera,"position:x", 0, 0.5)
 
 	move_and_slide()
+
+
+func _on_hands_child_entered_tree(node: Node) -> void:
+	if node is Weapon:
+		current_weapon = node

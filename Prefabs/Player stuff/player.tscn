@@ -7,7 +7,8 @@
 radius = 19.0
 height = 130.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
+collision_layer = 4
 script = ExtResource("1_h8clt")
 
 [node name="camera" type="Camera2D" parent="."]
@@ -22,6 +23,11 @@ texture = ExtResource("2_nc2p3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -65)
 shape = SubResource("CapsuleShape2D_vx084")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -100)
+target_position = Vector2(350, 0)
+collision_mask = 2
 
 [node name="hands" type="Node2D" parent="."]
 unique_name_in_owner = true
@@ -71,7 +77,6 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="CanvasLayer/Control/weapons Container/VBoxContainer2"]
 layout_mode = 2
-text = "Shotgun"
 horizontal_alignment = 1
 
 [node name="traps container" type="HBoxContainer" parent="CanvasLayer/Control"]
@@ -86,3 +91,5 @@ offset_top = -40.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[connection signal="child_entered_tree" from="hands" to="." method="_on_hands_child_entered_tree"]

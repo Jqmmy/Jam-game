@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://c74dpyblomavy"]
+
+[ext_resource type="Script" uid="uid://otyscsl6nr3n" path="res://Scripts/Item.gd" id="1_d4iwc"]
+
+[node name="Item Template" type="RigidBody2D" groups=["item"]]
+collision_layer = 2
+input_pickable = true
+script = ExtResource("1_d4iwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
