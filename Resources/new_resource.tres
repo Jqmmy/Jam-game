@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="TrapData" load_steps=4 format=3 uid="uid://cpxv66c7ji6k5"]
+
+[ext_resource type="Script" uid="uid://l3723ctp5aqd" path="res://Scripts/TrapData.gd" id="1_8pcf5"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="2_fhmnv"]
+[ext_resource type="PackedScene" uid="uid://brt6efthm3gun" path="res://Prefabs/traps/spikes.tscn" id="3_wt8un"]
+
+[resource]
+script = ExtResource("1_8pcf5")
+trap_name = "Spikes"
+description = "Damages and slows enemies down."
+texture = ExtResource("2_fhmnv")
+trap_scene = ExtResource("3_wt8un")
+metadata/_custom_type_script = "uid://l3723ctp5aqd"

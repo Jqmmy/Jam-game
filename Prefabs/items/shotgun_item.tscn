@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dq04l54mglygc"]
+[gd_scene load_steps=6 format=3 uid="uid://dq04l54mglygc"]
 
 [ext_resource type="PackedScene" uid="uid://c74dpyblomavy" path="res://Prefabs/items/item template/item_template.tscn" id="1_auwli"]
 [ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="2_2i1d1"]
@@ -7,9 +7,12 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nd1la"]
 size = Vector2(64, 72)
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_nd1la"]
+viewport_path = NodePath("SubViewport")
+
 [node name="Shotgun item" groups=["weapon"] instance=ExtResource("1_auwli")]
 script = ExtResource("2_nd1la")
-auto_pickup_threshhold = 200.0
+item_pickup_method = 1
 
 [node name="Sprite2D" parent="." index="0"]
 texture = ExtResource("2_2i1d1")
@@ -17,4 +20,41 @@ texture = ExtResource("2_2i1d1")
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("RectangleShape2D_nd1la")
 
+[node name="Sprite2D2" type="Sprite2D" parent="." index="2"]
+texture = SubResource("ViewportTexture_nd1la")
+
+[node name="SubViewport" type="SubViewport" parent="." index="3"]
+transparent_bg = true
+size = Vector2i(128, 128)
+
+[node name="Control" type="Control" parent="SubViewport" index="0"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SubViewport/Control" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -32.5
+offset_right = 32.5
+offset_bottom = 50.0
+grow_horizontal = 2
+
+[node name="name label" type="Label" parent="SubViewport/Control/VBoxContainer" index="0"]
+layout_mode = 2
+text = "Shotgun"
+horizontal_alignment = 1
+
+[node name="use" type="Label" parent="SubViewport/Control/VBoxContainer" index="1"]
+layout_mode = 2
+text = "E"
+horizontal_alignment = 1
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
 [connection signal="picked_up" from="." to="." method="_on_picked_up"]

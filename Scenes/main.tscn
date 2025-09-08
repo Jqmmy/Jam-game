@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cfed48go84knu"]
+[gd_scene load_steps=7 format=3 uid="uid://cfed48go84knu"]
 
 [ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://jc1p0uslb4co" path="res://Prefabs/Player stuff/player.tscn" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://x11nr7vvwxcp" path="res://Prefabs/enemies/test_enemy.tscn" id="3_8gbba"]
 [ext_resource type="PackedScene" uid="uid://dq04l54mglygc" path="res://Prefabs/items/shotgun_item.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://y6fpqr8f0yb0" path="res://Prefabs/items/spike_item.tscn" id="5_kry3j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bo1nx"]
 size = Vector2(1024, 20)
@@ -32,10 +33,16 @@ position = Vector2(764, 187)
 position = Vector2(664, 151)
 
 [node name="test enemy4" parent="." instance=ExtResource("3_8gbba")]
-position = Vector2(250, 166)
+position = Vector2(-52, 175)
 
 [node name="test enemy3" parent="." instance=ExtResource("3_8gbba")]
 position = Vector2(852, 182)
 
 [node name="Shotgun item" parent="." instance=ExtResource("4_jjvhh")]
 position = Vector2(668, -25)
+
+[node name="spike item" parent="." instance=ExtResource("5_kry3j")]
+position = Vector2(139, 135)
+
+[node name="spike item2" parent="." instance=ExtResource("5_kry3j")]
+position = Vector2(261, -7)

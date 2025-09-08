@@ -4,6 +4,7 @@ extends CharacterBody2D
 @onready var hands: Node2D = %hands
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
+@onready var traps_loader: Node = $traps_loader
 
 var health:int = 100
 
@@ -13,6 +14,9 @@ var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
 var current_weapon:Weapon
+var trap_slots = {
+	"spikes" = {"amount" = 1, "trap_scene" = "location", }
+}
 
 
 func _ready() -> void:

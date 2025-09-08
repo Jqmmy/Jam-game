@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://y6fpqr8f0yb0"]
+
+[ext_resource type="PackedScene" uid="uid://c74dpyblomavy" path="res://Prefabs/items/item template/item_template.tscn" id="1_2qqht"]
+[ext_resource type="Script" uid="uid://ds1scpalhhc2l" path="res://Scripts/spike_item.gd" id="2_og037"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="3_g5g5c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_okape"]
+size = Vector2(130, 130)
+
+[node name="spike item" instance=ExtResource("1_2qqht")]
+script = ExtResource("2_og037")
+item_pickup_method = 1
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("3_g5g5c")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("RectangleShape2D_okape")
+
+[connection signal="picked_up" from="." to="." method="_on_picked_up"]

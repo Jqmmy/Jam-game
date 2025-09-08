@@ -4,7 +4,6 @@ class_name Enemy
 var health:int = 100:
 	set(value):
 		health = value
-		print(health)
 		if health <= 0:
 			health_depleted.emit()
 			queue_free()
