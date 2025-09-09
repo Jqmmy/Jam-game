@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://dvuics1pjx4jw"]
+
+[ext_resource type="Script" uid="uid://j4pcdcmu6vsw" path="res://Scripts/Classes/Weapon.gd" id="1_6dg3d"]
+
+[node name="temp weapon" type="Node2D" node_paths=PackedStringArray("sprite2d") groups=["enemy"]]
+script = ExtResource("1_6dg3d")
+sprite2d = NodePath("Sprite2D")
+metadata/_custom_type_script = "uid://j4pcdcmu6vsw"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

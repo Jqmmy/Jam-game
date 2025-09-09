@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dhckvdv114mqy"]
+
+[ext_resource type="PackedScene" uid="uid://dvuics1pjx4jw" path="res://Prefabs/weapons/template/temp weapon.tscn" id="1_hspny"]
+[ext_resource type="Script" uid="uid://cl06c8614kkgj" path="res://Scripts/fists.gd" id="2_bv65o"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="3_bv65o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2cvf3"]
+size = Vector2(50, 60)
+
+[node name="Fists" instance=ExtResource("1_hspny")]
+script = ExtResource("2_bv65o")
+weapon_name = "Fists"
+description = "Last resort when you're out of bullets."
+damage = 20
+rate_of_fire = 0.5
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(10.5, 0)
+scale = Vector2(0.304688, 0.21875)
+texture = ExtResource("3_bv65o")
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(25, 0)
+shape = SubResource("RectangleShape2D_2cvf3")
