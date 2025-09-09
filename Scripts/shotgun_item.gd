@@ -13,7 +13,6 @@ func _ready() -> void:
 func _on_picked_up() -> void:
 	var player = get_tree().get_first_node_in_group("player")
 	player.add_weapon(shotgun)
-	
 
 func _on_mouse_entered() -> void:
 	control.show()

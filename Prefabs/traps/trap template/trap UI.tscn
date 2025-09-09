@@ -18,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 1
 theme = SubResource("Theme_v582m")
 icon = ExtResource("2_urwcj")
 expand_icon = true

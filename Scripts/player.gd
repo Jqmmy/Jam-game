@@ -14,12 +14,13 @@ var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
 var current_weapon:Weapon
-var trap_slots = {
-	"spikes" = {"amount" = 1, "trap_scene" = "location", }
-}
+var weapons:Array[Weapon] = []
+
 
 
 func _ready() -> void:
+	for weapon in hands.get_children():
+		weapons.append(weapon)
 	resting_hands_pos = hands.position
 
 func _process(delta: float) -> void:

@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://3b4a57p053b2"]
+
+[ext_resource type="Script" uid="uid://xc0mdl0oncih" path="res://Trap.gd" id="1_h5cau"]
+
+[node name="trap template" type="Node2D"]
+top_level = true
+script = ExtResource("1_h5cau")
+placing_color = Color(1, 1, 1, 0.156863)
+metadata/_custom_type_script = "uid://xc0mdl0oncih"
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Node2D"]
+unique_name_in_owner = true
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 200)

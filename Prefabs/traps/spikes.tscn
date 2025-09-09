@@ -1,10 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://brt6efthm3gun"]
 
-[ext_resource type="PackedScene" uid="uid://3b4a57p053b2" path="res://Prefabs/traps/trap template/trap.tscn" id="1_iiq0v"]
+[ext_resource type="PackedScene" uid="uid://3b4a57p053b2" path="res://Prefabs/traps/trap template/trap template.tscn" id="1_iiq0v"]
 [ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="2_r8ew6"]
 
 [node name="Spikes" instance=ExtResource("1_iiq0v")]
+trap_name = "spikes"
 
-[node name="Sprite2D" parent="." index="0"]
+[node name="Sprite2D" parent="Node2D" index="0"]
 position = Vector2(0, -64)
 texture = ExtResource("2_r8ew6")

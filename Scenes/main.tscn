@@ -45,4 +45,4 @@ position = Vector2(668, -25)
 position = Vector2(139, 135)
 
 [node name="spike item2" parent="." instance=ExtResource("5_kry3j")]
-position = Vector2(261, -7)
+position = Vector2(272, 134)
