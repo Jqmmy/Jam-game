@@ -5,6 +5,8 @@ extends CharacterBody2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var ray_cast_2d: RayCast2D = $RayCast2D
 @onready var traps_loader: Node = $traps_loader
+@onready var weapon_slot_1: TextureRect = $"CanvasLayer/Control/weapons Container/slot 1/weapon slot 1"
+@onready var weapon_slot_2: TextureRect = $"CanvasLayer/Control/weapons Container/slot 2/weapon slot 2"
 
 var health:int = 100
 
@@ -13,7 +15,16 @@ var JUMP_VELOCITY = -400.0
 var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
-var current_weapon:Weapon
+var current_weapon:Weapon:
+	set(value):
+		current_weapon = value
+		for weapon in weapons:
+			if weapon == current_weapon:
+				weapon.current_weapon = true
+				weapon.show()
+			else:
+				weapon.hide()
+				weapon.current_weapon = false
 var weapons:Array[Weapon] = []
 
 
@@ -21,12 +32,22 @@ var weapons:Array[Weapon] = []
 func _ready() -> void:
 	for weapon in hands.get_children():
 		weapons.append(weapon)
+		weapon_slot_1.texture = weapon.sprite2d.texture
 	resting_hands_pos = hands.position
 
 func _process(delta: float) -> void:
 	ray_cast_2d.look_at(get_global_mouse_position())
 
-func add_weapon(weapon:Node2D):
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("weapon 1"):
+		current_weapon = weapons[0]
+	if event.is_action_pressed("weapon 2"):
+		if weapons.size() > 1:
+			current_weapon = weapons[1]
+
+func add_weapon(weapon:Weapon):
+	weapons.append(weapon)
+	weapon_slot_2.texture = weapon.sprite2d.texture
 	hands.add_child(weapon)
 
 

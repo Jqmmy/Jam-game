@@ -11,11 +11,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	if sprite_2d.flip_h == true:
-		area_2d.position.x = - 350
-		sprite_2d.position.x = -60
+		area_2d.position.x = - 380
 	else:
 		area_2d.position.x = 0
-		sprite_2d.position.x = 0
 
 func on_use_weapon():
 	var enemies_shot:int = 0

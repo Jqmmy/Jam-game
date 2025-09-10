@@ -6,13 +6,14 @@ class_name Weapon
 @export var damage:int = 10
 @export var reload_speed:float
 @export var rate_of_fire:float
-@export var player_width:float
+@export var texture_width:float
 @export var sprite2d:Sprite2D
 
 
 
 var hands_resting_pos:Vector2
 var hands
+var current_weapon:bool = true
 enum directions {
 	LEFT,
 	RIGHT
@@ -27,7 +28,7 @@ func _enter_tree() -> void:
 	hands = get_parent()
 
 func _input(_event: InputEvent) -> void:
-	if !Engine.is_editor_hint():
+	if current_weapon:
 		if Input.is_action_just_pressed("use weapon"):
 			used_weapon.emit()
 		if Input.is_action_pressed("use weapon"):
@@ -36,8 +37,10 @@ func _input(_event: InputEvent) -> void:
 func flip_weapon(direction:directions):
 	if direction == directions.LEFT:
 		hands.position.x = -hands_resting_pos.x
+		#replace the assignment with sprite2d.texture.get_width() in the future
+		sprite2d.position.x = texture_width
 		sprite2d.flip_h = true
-		sprite2d.position.x = 0
 	elif direction == directions.RIGHT:
 		hands.position.x = hands_resting_pos.x
+		sprite2d.position.x = 0
 		sprite2d.flip_h = false

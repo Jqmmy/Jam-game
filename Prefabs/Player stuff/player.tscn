@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://jc1p0uslb4co"]
+[gd_scene load_steps=6 format=3 uid="uid://jc1p0uslb4co"]
 
 [ext_resource type="Script" uid="uid://dejecgscw78vv" path="res://Scripts/player.gd" id="1_h8clt"]
 [ext_resource type="Texture2D" uid="uid://6n3koaaaegfk" path="res://Assets/placeholder_sprite.png" id="2_nc2p3"]
+[ext_resource type="PackedScene" uid="uid://dhckvdv114mqy" path="res://Prefabs/weapons/fists.tscn" id="3_nc2p3"]
 [ext_resource type="Script" uid="uid://ps82lbkabapc" path="res://Scripts/traps_loader.gd" id="3_v8br1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vx084"]
@@ -34,6 +35,8 @@ collision_mask = 2
 unique_name_in_owner = true
 position = Vector2(15, -74)
 
+[node name="Fists" parent="hands" instance=ExtResource("3_nc2p3")]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [node name="traps_loader" type="Node" parent="."]
@@ -60,26 +63,26 @@ anchor_bottom = 0.04
 offset_right = 164.0
 offset_bottom = 107.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Control/weapons Container"]
+[node name="slot 1" type="VBoxContainer" parent="CanvasLayer/Control/weapons Container"]
 layout_mode = 2
 
-[node name="weapon slot 1" type="PanelContainer" parent="CanvasLayer/Control/weapons Container/VBoxContainer"]
+[node name="weapon slot 1" type="TextureRect" parent="CanvasLayer/Control/weapons Container/slot 1"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/weapons Container/VBoxContainer"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/weapons Container/slot 1"]
 layout_mode = 2
 text = "Fists"
 horizontal_alignment = 1
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Control/weapons Container"]
+[node name="slot 2" type="VBoxContainer" parent="CanvasLayer/Control/weapons Container"]
 layout_mode = 2
 
-[node name="weapon slot 1" type="PanelContainer" parent="CanvasLayer/Control/weapons Container/VBoxContainer2"]
+[node name="weapon slot 2" type="TextureRect" parent="CanvasLayer/Control/weapons Container/slot 2"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/weapons Container/VBoxContainer2"]
+[node name="Label" type="Label" parent="CanvasLayer/Control/weapons Container/slot 2"]
 layout_mode = 2
 horizontal_alignment = 1
 
