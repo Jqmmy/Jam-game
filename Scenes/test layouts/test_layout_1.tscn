@@ -1,0 +1,144 @@
+[gd_scene load_steps=4 format=3 uid="uid://bitaxld481415"]
+
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="1_taojp"]
+[ext_resource type="PackedScene" uid="uid://jc1p0uslb4co" path="res://Prefabs/Player stuff/player.tscn" id="2_1pt3y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_taojp"]
+size = Vector2(1288, 20)
+
+[node name="test layout1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_1pt3y")]
+position = Vector2(194, 555)
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-247.5, 590)
+scale = Vector2(5.25781, 0.5)
+texture = ExtResource("1_taojp")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(-247.5, 422)
+scale = Vector2(5.28906, 2.14062)
+texture = ExtResource("1_taojp")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(417, 587)
+scale = Vector2(5.375, 0.375)
+texture = ExtResource("1_taojp")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(376, 502)
+scale = Vector2(0.703125, 0.796875)
+texture = ExtResource("1_taojp")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(1220, 303)
+rotation = -0.509961
+scale = Vector2(9.39789, 0.796875)
+texture = ExtResource("1_taojp")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-1103, 307)
+rotation = 0.483792
+scale = Vector2(9.39789, 0.796875)
+texture = ExtResource("1_taojp")
+
+[node name="reactor" type="Sprite2D" parent="."]
+position = Vector2(171, -330)
+scale = Vector2(13.1719, 7.125)
+texture = ExtResource("1_taojp")
+
+[node name="reactor2" type="Sprite2D" parent="."]
+position = Vector2(1743.5, 16)
+scale = Vector2(12.2891, 0.75)
+texture = ExtResource("1_taojp")
+
+[node name="reactor3" type="Sprite2D" parent="."]
+position = Vector2(-1331.25, 16)
+scale = Vector2(11.1055, 0.75)
+texture = ExtResource("1_taojp")
+
+[node name="garden" type="Sprite2D" parent="."]
+position = Vector2(-2356, -139)
+scale = Vector2(5.44531, 2.21875)
+texture = ExtResource("1_taojp")
+
+[node name="entrance" type="Sprite2D" parent="."]
+position = Vector2(-3182, -1725)
+scale = Vector2(3.57812, 3.48438)
+texture = ExtResource("1_taojp")
+
+[node name="entrance 2" type="Sprite2D" parent="."]
+position = Vector2(2437, -1654)
+scale = Vector2(3.57812, 3.48438)
+texture = ExtResource("1_taojp")
+
+[node name="radiation filter" type="Sprite2D" parent="."]
+position = Vector2(141, -1086)
+scale = Vector2(5.39062, 3.10938)
+texture = ExtResource("1_taojp")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(197, 583)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-133, 0)
+shape = SubResource("RectangleShape2D_taojp")
+
+[node name="Icon7" type="Sprite2D" parent="."]
+position = Vector2(-2140.5, -1562)
+scale = Vector2(12.9141, 1)
+texture = ExtResource("1_taojp")
+
+[node name="Icon9" type="Sprite2D" parent="."]
+position = Vector2(-767, -1213)
+rotation = 0.515428
+scale = Vector2(10.6524, 1)
+texture = ExtResource("1_taojp")
+
+[node name="Icon10" type="Sprite2D" parent="."]
+position = Vector2(2007.45, -1441.21)
+rotation = -0.000540316
+scale = Vector2(3.71586, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon11" type="Sprite2D" parent="."]
+position = Vector2(1577, -1300)
+rotation = -0.000540316
+scale = Vector2(3.56748, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon12" type="Sprite2D" parent="."]
+position = Vector2(1241.16, -1160.11)
+rotation = -0.000540316
+scale = Vector2(2.58856, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon13" type="Sprite2D" parent="."]
+position = Vector2(934, -997)
+rotation = -0.000540316
+scale = Vector2(2.58856, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon14" type="Sprite2D" parent="."]
+position = Vector2(623, -864)
+rotation = -0.000540316
+scale = Vector2(2.58856, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon15" type="Sprite2D" parent="."]
+position = Vector2(1194.75, -735.134)
+rotation = -0.000540316
+scale = Vector2(6.47522, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon16" type="Sprite2D" parent="."]
+position = Vector2(2145, -458)
+rotation = 0.439119
+scale = Vector2(10.9288, 1.26058)
+texture = ExtResource("1_taojp")
+
+[node name="Icon8" type="Sprite2D" parent="."]
+position = Vector2(-2866, -743.5)
+scale = Vector2(2.71875, 11.8359)
+texture = ExtResource("1_taojp")

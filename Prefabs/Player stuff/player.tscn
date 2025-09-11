@@ -11,6 +11,8 @@ height = 130.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 4
+floor_constant_speed = true
+floor_snap_length = 15.0
 script = ExtResource("1_h8clt")
 
 [node name="camera" type="Camera2D" parent="."]
