@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=4 uid="uid://d35xflqba1g4g"]
+
+[ext_resource type="TileSet" uid="uid://8unawbubldby" path="res://Assets/test_layout_1.tres" id="1_6tsbr"]
+[ext_resource type="Texture2D" uid="uid://b4a1h4wxn032s" path="res://icon.svg" id="2_8677s"]
+[ext_resource type="PackedScene" uid="uid://jc1p0uslb4co" path="res://Prefabs/Player stuff/player.tscn" id="3_f22w5"]
+
+[node name="test layout 2" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-1.00002, -118)
+scale = Vector2(3.96875, 1.82812)
+texture = ExtResource("2_8677s")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(1664, -437.5)
+scale = Vector2(10.0156, 6.82031)
+texture = ExtResource("2_8677s")
+
+[node name="Icon3" type="Sprite2D" parent="."]
+position = Vector2(-7, -529.5)
+scale = Vector2(4.04688, 2.22656)
+texture = ExtResource("2_8677s")
+
+[node name="Icon5" type="Sprite2D" parent="."]
+position = Vector2(1159, -1170)
+scale = Vector2(4.04688, 2.22656)
+texture = ExtResource("2_8677s")
+
+[node name="Icon6" type="Sprite2D" parent="."]
+position = Vector2(2437, -1173)
+scale = Vector2(4.04688, 2.22656)
+texture = ExtResource("2_8677s")
+
+[node name="Icon4" type="Sprite2D" parent="."]
+position = Vector2(-1398, -653)
+scale = Vector2(4.04688, 2.22656)
+texture = ExtResource("2_8677s")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wAAAAAAAAAAAAD//wAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAANAAAAAAAAAAAAAAAOAAAAAAAAAAAAAAAPAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAARAAAAAAAAAAAAAAD+//3/AAAAAAAAAAD///3/AAAAAAAAAAAAAP3/AAAAAAAAAAABAP3/AAAAAAAAAAAQAPj/AAAAAAAAAAARAPj/AAAAAAAAAAASAPj/AAAAAAAAAAATAPj/AAAAAAAAAAAUAPj/AAAAAAAAAAD9//3/AAAAAAAAAAD8//3/AAAAAAAAAAD4//z/AAAAAAAAAAD3//z/AAAAAAAAAAD2//z/AAAAAAAAAAD1//z/AAAAAAAAAAD0//z/AAAAAAAAAADz//z/AAAAAAAAAAAEAP7/AAAAAAAAAAADAP3/AAAAAAAAAAACAP3/AAAAAAAAAAAGAPj/AAAAAAAAAAAHAPj/AAAAAAAAAAAIAPj/AAAAAAAAAAAJAPj/AAAAAAAAAAAPAPj/AAAAAAAAAAAOAPj/AAAAAAAAAAANAPj/AAAAAAAAAAAMAPj/AAAAAAAAAAALAPj/AAAAAAAAAAAKAPj/AAAAAAAAAAAGAPv/AAAAAAAAAAAFAPv/AAAAAAAAAAAGAPn/AAAAAAAAAAAGAPr/AAAAAAAAAAAHAPv/AAAAAAAAAAAIAPv/AAAAAAAAAAAJAPv/AAAAAAAAAAAKAPv/AAAAAAAAAAALAPv/AAAAAAAAAAAMAPv/AAAAAAAAAAANAPv/AAAAAAAAAAAOAPv/AAAAAAAAAAAPAPv/AAAAAAAAAAAQAPv/AAAAAAAAAAARAPv/AAAAAAAAAAASAPv/AAAAAAAAAAASAAAAAAAAAAAAAAATAAAAAAAAAAAAAAATAP//AAAAAAAAAAATAP7/AAAAAAAAAAATAP3/AAAAAAAAAAATAPz/AAAAAAAAAAATAPv/AAAAAAAAAAD7//3/AAAAAAAAAAD6//z/AAABAAEAAAD5//z/AAAAAAAAAAD6//3/AAABAAIAAAA=")
+tile_set = ExtResource("1_6tsbr")
+
+[node name="Player" parent="." instance=ExtResource("3_f22w5")]

@@ -1,0 +1,24 @@
+[gd_resource type="TileSet" load_steps=3 format=3 uid="uid://8unawbubldby"]
+
+[ext_resource type="Texture2D" uid="uid://1g8bqh5t6sgw" path="res://Assets/gimp spite_sheet.png" id="1_g6ipx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ns60"]
+texture = ExtResource("1_g6ipx")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -40.0186, 64, -40.1984, 64, 64, -64, 64)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-3.38684, -64, 64, -39.7954, 64, 64, -64, -64)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 45.951, -14.9282, 64, -47.1172, 64, -64, 64)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -37.0873, 64, 1.63277, 64, 64, -64, 64)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, 2.56579, 64, 49.683, 64, 64, -64, 64)
+1:1/0 = 0
+1:2/0 = 0
+
+[resource]
+tile_size = Vector2i(128, 128)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_5ns60")
