@@ -12,6 +12,7 @@ var health:int = 100
 
 var SPEED = 300.0
 var JUMP_VELOCITY = -400.0
+var on_ladder:bool = false
 var camera_move_offset:float = 75
 var camera_move_offset_up:float = 200
 var resting_hands_pos:Vector2
@@ -74,7 +75,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	var tween = get_tree().create_tween()
-	if not is_on_floor():
+	if not is_on_floor() and not on_ladder:
 		velocity += get_gravity() * delta
 		
 		tween.tween_property(camera,"position:y", -camera_move_offset_up, 0.5)
@@ -82,7 +83,7 @@ func _physics_process(delta: float) -> void:
 		tween.tween_property(camera,"position:y", -160, 0.2)
 
 	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	if Input.is_action_just_pressed("ui_accept") and is_on_floor() and not on_ladder:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
